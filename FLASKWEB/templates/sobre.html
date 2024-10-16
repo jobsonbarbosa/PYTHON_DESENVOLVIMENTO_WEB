@@ -10,7 +10,10 @@
     <hr>
     <ol>
         {% for chave, valor in produtos.items()%}
-            <li>{{chave}}: {{valor}}</li>
+        <details>
+            <summary>{{chave}}</summary>
+            <p>{{valor}}</p>
+        </details>
         {%endfor%}
     </ol>
 </body>
