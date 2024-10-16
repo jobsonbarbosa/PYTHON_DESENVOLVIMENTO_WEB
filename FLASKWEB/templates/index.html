@@ -1,23 +1,17 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Produtos</title>
-</head>
-<body>
-    <h2 style="text-align: center;">Lista de ProdutosL</h2>
-    <hr>
-    <ol>
-        {% for produto in produtos %}
-            <li>{{produto}}</li>
-        {% endfor %}
-        <br>
-        <form action="{{url_for('home')}}" method="POST">
-            <label>Produtos</label>
-            <input type="text" name="produtos" required>
-            <button>Adicionar</button>
-        </form>
-    </ol>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<h2 style="text-align: center;">Lista de Produtos</h2>
+<hr>
+<ol>
+    {% for produto in produtos %}
+        <li>{{produto}}</li>
+    {% endfor %}
+    <br>
+    <form action="{{url_for('home')}}" method="POST">
+        <label>Produtos</label>
+        <input type="text" name="produtos" required>
+        <button>Adicionar</button>
+    </form>
+</ol>
+{% endblock conteudo %}

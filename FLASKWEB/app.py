@@ -32,4 +32,6 @@ def sobre():
         if request.form.get("produto") and request.form.get("valor"):
             produtos_valores.append({"produto":request.form.get("produto"), "valor":request.form.get("valor")})
     return render_template("sobre.html", produtos_valores=produtos_valores)
-app.run(debug=True)
+
+if __name__ == "__main__":
+    app.run(debug=True)
