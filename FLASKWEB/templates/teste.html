@@ -2,27 +2,23 @@
 
 {% block conteudo %}
 
-<h2 style="text-align: center;">Diário de noticias</h2>
-<hr>
+    <h2 style="text-align: center;">Diário de noticias</h2>
+    <hr>
 
     {% for produto in produtos_valores %}
-        <!-- <details>
-            <summary>{{produto.produto}}</summary>
-            <p>{{produto.valor}}</p>
-        </details> -->
-        <p>
-            <a class="btn btn-primary" data-bs-toggle="collapse" href="#_{{produto.produto}}" role="button" aria-expanded="false" aria-controls="collapseExample_{{produto.produto}}">
+        <p class="d-inline-flex gap-1">
+            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample_{{produto.produto}}" role="button" aria-expanded="false" aria-controls="collapseExample_{{produto.produto}}">
                 {{produto.produto}}
             </a>
         </p>
-        <div class="collapse" id="_{{produto.produto}}">
+        <div class="collapse" id="collapseExample_{{produto.produto}}">
             <div class="card card-body">
                 {{produto.valor}}
             </div>
         </div>
 
     {% endfor %}
-    <form action="{{url_for('sobre')}}" method="POST">
+    <form action="{{url_for('teste')}}" method="POST">
         <div class="form-grupo">
             <label>Produto</label>
             <input class="form-control" type="text" name="produto" placeholder="Digite o nome do produto" required>

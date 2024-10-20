@@ -3,15 +3,17 @@
 {% block conteudo %}
 <h2 style="text-align: center;">Lista de Produtos</h2>
 <hr>
-<ol>
+<ul class="list-group">
     {% for produto in produtos %}
-        <li>{{produto}}</li>
+        <li class="list-group-item">{{produto}}</li>
     {% endfor %}
-    <br>
-    <form action="{{url_for('home')}}" method="POST">
-        <label>Produtos</label>
-        <input type="text" name="produtos" required>
-        <button>Adicionar</button>
-    </form>
-</ol>
+        <br>
+        <form action="{{url_for('home')}}" method="POST">
+            <div class="form-group">
+                <label for="exemploProdutos">Produtos</label>
+                <input class="form-control" id="exemploProdutos" type="text" name="produtos" placeholder="Digite o nome de um produtos" required>
+            </div>
+            <button class="btn btn-success">Adicionar</button>
+        </form>
+</ul>
 {% endblock conteudo %}

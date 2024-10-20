@@ -28,10 +28,19 @@ def sobre():
     #     "Asfalto Morno": 4560.00
     # }
     
-    if request.method== "POST":
+    if request.method == "POST":
         if request.form.get("produto") and request.form.get("valor"):
-            produtos_valores.append({"produto":request.form.get("produto"), "valor":request.form.get("valor")})
+            produtos_valores.append({"produto":request.form.get("produto"), 
+                                     "valor":request.form.get("valor")})
     return render_template("sobre.html", produtos_valores=produtos_valores)
+
+@app.route('/teste', methods=["GET", "POST"])
+def teste():    
+    if request.method == "POST":
+        if request.form.get("produto") and request.form.get("valor"):
+            produtos_valores.append({"produto":request.form.get("produto"), 
+                                     "valor":request.form.get("valor")})
+    return render_template("teste.html", produtos_valores=produtos_valores)
 
 if __name__ == "__main__":
     app.run(debug=True)
