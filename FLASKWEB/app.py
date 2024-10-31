@@ -81,6 +81,10 @@ def filmes():
 def lista_cursos():
     return render_template("cursos.html", cursos=cursos.query.all())
 
+@app.route("/cria_curso")
+def cria_curso():
+    return render_template("novo_curso.html")
+
 
 if __name__ == "__main__":
     with app.app_context():
