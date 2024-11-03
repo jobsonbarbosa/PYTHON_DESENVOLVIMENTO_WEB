@@ -14,15 +14,19 @@
             <th scope="col">Nome</th>
             <th scope="col">Descrição</th>
             <th scope="col">Carga Horária</th>
+            <th scope="col">Ações</th>
         </tr>
     </thead>
     <tbody>
         {% for curso in cursos %}
             <tr>
-                <th scope="row">{{curso.id}}</th>
-                <th scope="row">{{curso.nome}}</th>
-                <th scope="row">{{curso.descricao}}</th>
-                <th scope="row">{{curso.ch}} hs</th>
+                <td scope="row">{{curso.id}}</td>
+                <td scope="row">{{curso.nome}}</td>
+                <td scope="row">{{curso.descricao}}</td>
+                <td scope="row">{{curso.ch}} hs</td>
+                <td scope="row">
+                    <a href="{{curso.id}}/atualiza_curso" class="btn btn-secondary btn-xs">Editar</a>
+                </td>
             </tr>
         {% endfor %}
     </tbody>
