@@ -18,7 +18,7 @@
         </tr>
     </thead>
     <tbody>
-        {% for curso in cursos %}
+        {% for curso in cursos.items %}
             <tr>
                 <td scope="row">{{curso.id}}</td>
                 <td scope="row">{{curso.nome}}</td>
@@ -26,6 +26,7 @@
                 <td scope="row">{{curso.ch}} hs</td>
                 <td scope="row">
                     <a href="{{curso.id}}/atualiza_curso" class="btn btn-secondary btn-xs">Editar</a>
+                    <a href="{{curso.id}}/remove_curso" onclick="return confirm('Deseja excluir esse registro?')" class="btn btn-danger btn-xs">Excluir</a>
                 </td>
             </tr>
         {% endfor %}
@@ -34,5 +35,15 @@
         {{curso.id}} - {{curso.nome}}
     {% endfor %} -->
 </table>
+{% if cursos.has_prev %}
+    <a href="{{url_for('lista_cursos', page=cursos.prev_num)}}">Cursos Anteriores</a>
+{% else %}
+    Cursos listados
+{% endif%}
+{% if cursos.has_next %}
+    <a href="{{url_for('lista_cursos', page=cursos.next_num)}}">Próximos Cursos</a>
+{% else %}
+    Cursos Listados
+{% endif%}
 
 {% endblock conteudo %}
